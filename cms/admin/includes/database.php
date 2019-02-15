@@ -4,7 +4,7 @@ require_once("config.php");
 
 class Database{
     
-    private $connection;
+    public $connection;
     
     public function open_db_connection(){
         
