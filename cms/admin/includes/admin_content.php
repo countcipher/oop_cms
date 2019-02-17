@@ -10,11 +10,16 @@
                         
                         <?php
                         
-                        $sql = "SELECT * FROM users WHERE id = 1";
-                        $result = $database->query($sql);
-                        $user_found = mysqli_fetch_assoc($result);
+                        $user = new User();
                         
-                        echo $user_found['first_name'];
+                        $result = $user->find_all_users();
+                        
+                        
+                        while($row = mysqli_fetch_assoc($result)){
+                            
+                            echo $row['username']."<br>";
+                            
+                        }
                         
                         ?>
                         
