@@ -22,11 +22,14 @@
                         
                         $found_user = User::find_user_by_id(2);
                         
+                        $user = User::instantiation($found_user);
+                        
                         
                         
                         echo $user->id;
                         echo "<br>";
                         echo $user->first_name;
+                        echo $user->last_name;
                         ?>
                         
                         <ol class="breadcrumb">
