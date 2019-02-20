@@ -58,6 +58,10 @@ class User{
         
     }
     
+    private function has_the_attribute($attribute){
+        
+    }
+    
 }
 
 
