@@ -2,6 +2,12 @@
 
 class User{
     
+    public $id;
+    public $username;
+    public $password;
+    public $first_name;
+    public $last_name;
+    
     
     static function find_all_users(){
         
@@ -25,6 +31,18 @@ class User{
         
         return $result_set;
         
+        
+    }
+    
+    private static function instantiation(){
+        
+        $user = new User();
+                        
+        $user->id = $found_user['id'];
+        $user->username = $found_user['username'];
+        $user->password = $found_user['password'];
+        $user->first_name = $found_user['first_name'];
+        $user->last_name = $found_user['last_name'];
         
     }
     

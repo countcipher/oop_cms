@@ -20,10 +20,13 @@
                             
                         }
                         
-                        $found_user = User::find_user_by_id(1);
+                        $found_user = User::find_user_by_id(2);
                         
-                            echo $found_user['username']."<br>";
                         
+                        
+                        echo $user->id;
+                        echo "<br>";
+                        echo $user->first_name;
                         ?>
                         
                         <ol class="breadcrumb">
