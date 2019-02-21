@@ -28,6 +28,13 @@ class User{
         global $database;
         
         $result_set = $database->query($sql);
+        $the_object_array = array();
+        
+        while($row = mysqli_fetch_assoc($result_set)){
+            
+            $the_object_array[] = self::instantiation($row) ;
+            
+        }
         
         return $result_set;
         
@@ -59,6 +66,10 @@ class User{
     }
     
     private function has_the_attribute($attribute){
+        
+        $object_properties = get_object_vars($this);
+        
+        return array_key_exists($attribute, $object_properties);
         
     }
     
