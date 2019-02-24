@@ -11,16 +11,22 @@
                         <?php
                         
                         
-                        $result = User::find_all_users();
+                        $users = User::find_all_users();
                         
-                        
-                        while($row = mysqli_fetch_assoc($result)){
+                        foreach($users as $user){
                             
-                            echo $row['username']."<br>";
+                            echo $user->username."<br>";
                             
                         }
                         
-                        $found_user = User::find_user_by_id(2);
+                        
+                        /*while($row = mysqli_fetch_assoc($result)){
+                            
+                            echo $row['username']."<br>";
+                            
+                        }*/
+                        
+                        /*$found_user = User::find_user_by_id(2);
                         
                         $user = User::instantiation($found_user);
                         
@@ -29,7 +35,7 @@
                         echo $user->id;
                         echo "<br>";
                         echo $user->first_name;
-                        echo $user->last_name;
+                        echo $user->last_name;*/
                         ?>
                         
                         <ol class="breadcrumb">

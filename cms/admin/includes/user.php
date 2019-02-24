@@ -1,6 +1,6 @@
 <?php
 
-class User{
+ class User{
     
     public $id;
     public $username;
@@ -9,15 +9,14 @@ class User{
     public $last_name;
     
     
-    static function find_all_users(){
+    public static function find_all_users(){
         
         return self::find_this_query("SELECT * FROM users");
         
     }
     
-    static function find_user_by_id($user_id){
+    public static function find_user_by_id($user_id){
         global $database;
-        
         $result_set = self::find_this_query("SELECT * FROM users WHERE id = $user_id LIMIT 1");
         $found_user = mysqli_fetch_assoc($result_set);
         return $found_user;
@@ -36,7 +35,7 @@ class User{
             
         }
         
-        return $result_set;
+        return $the_object_array;
         
         
     }
@@ -51,11 +50,11 @@ class User{
         $the_object->first_name = $found_user['first_name'];
         $the_object->last_name = $found_user['last_name'];*/
         
-        foreach($the_record as $attribute => $value){
+        foreach($the_record as $the_attribute => $value){
             
-            if($the_object->has_the_attribute($attribute)){
+            if($the_object->has_the_attribute($the_attribute)){
                 
-                $the_object->the_attribute = $value;
+                $the_object->$the_attribute = $value;
                 
             }
             
@@ -65,11 +64,11 @@ class User{
         
     }
     
-    private function has_the_attribute($attribute){
+    private function has_the_attribute($the_attribute){
         
         $object_properties = get_object_vars($this);
         
-        return array_key_exists($attribute, $object_properties);
+        return array_key_exists($the_attribute, $object_properties);
         
     }
     
